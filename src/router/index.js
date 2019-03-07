@@ -6,7 +6,8 @@ import { setTitle } from '../libs/utils'
 Vue.use(Router)
 const router = new Router({
   routes,
-  mode: 'history'
+  mode: 'history',
+  base: process.env.BASE_URL
 })
 
 router.afterEach(to => {
