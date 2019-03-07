@@ -35,15 +35,15 @@ class HttpRequest {
         let { code, msg } = headers
         if (code && code !== '0') {
           msg = msg ? decodeURIComponent(msg) : '系统异常'
+          let errorInfo = {
+            data: data,
+            code,
+            msg,
+            status,
+            request: { responseURL: res.request.responseURL }
+          }
+          return Promise.reject(errorInfo)
         }
-        let errorInfo = {
-          data: data,
-          code,
-          msg,
-          status,
-          request: { responseURL: res.request.responseURL }
-        }
-        return Promise.reject(errorInfo)
       }
       return { data, status, res }
     }, error => {
