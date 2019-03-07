@@ -1,6 +1,14 @@
 import axios from 'axios'
 import qs from 'qs'
 
+const processErrorInfo = (errorInfo) => {
+  console.log('出现异常：', errorInfo)
+  $loading.close()
+  if (errorInfo.msg) {
+    $toast.bottom(errorInfo.msg)
+  }
+}
+
 class HttpRequest {
   constructor (baseUrl = '') {
     this.baseUrl = baseUrl
@@ -42,6 +50,7 @@ class HttpRequest {
             status,
             request: { responseURL: res.request.responseURL }
           }
+          processErrorInfo(errorInfo)
           return Promise.reject(errorInfo)
         }
       }
@@ -67,6 +76,7 @@ class HttpRequest {
       if (errorInfo.status === 404) {
         errorInfo.status = 200
       }
+      processErrorInfo(errorInfo)
       return Promise.reject(errorInfo)
     })
   }
