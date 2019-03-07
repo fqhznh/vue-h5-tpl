@@ -1,3 +1,7 @@
+import config from '@/config'
+
+const { title } = config
+
 /**
  * 获取路由标题
  * @param route
