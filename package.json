@@ -14,7 +14,9 @@
     "qs": "^6.6.0",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "vue2-toast": "^2.0.2",
+    "ua-device": "^0.1.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.4.0",
@@ -26,6 +28,7 @@
     "eslint-plugin-vue": "^5.0.0",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.5.21",
+    "mockjs": "^1.0.1-beta3"
   }
 }
